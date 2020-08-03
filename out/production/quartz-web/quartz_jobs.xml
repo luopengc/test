@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<job-scheduling-data
+	xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData http://www.quartz-scheduler.org/xml/job_scheduling_data_1_8.xsd"
+	version="1.8">
+	<schedule>
+		<job>
+			<name>JobName</name>
+			<group>JobGroup</group>
+			<!-- 指向我们实现Job接口的java类,这个类写执行逻辑 -->
+			<job-class>com.yr.test.MyJob</job-class>
+		</job>
+		<trigger>
+			<cron>
+				<name>bbbb</name>
+				<group>aaaa</group>
+				
+				
+				<!-- 和job节点下的name对应 -->
+				<job-name>JobName</job-name>
+				<!-- 和job节点下的group对应 -->
+				<job-group>JobGroup</job-group>
+				<!-- 时间配置 -->
+				<cron-expression>0/3 * * * * ?</cron-expression>
+			</cron>
+		</trigger>
+	</schedule>
+	
+	<schedule>
+		<job>
+			<name>aa</name>
+			<group>bb</group>
+			<!-- 指向我们实现Job接口的java类,这个类写执行逻辑 -->
+			<job-class>com.yr.test.QuartzJob1</job-class>
+		</job>
+		<trigger>
+			<cron>
+				<name>aaa</name>
+				<group>bbb</group>
+				<!-- 和job节点下的name对应 -->
+				<job-name>aa</job-name>
+				<!-- 和job节点下的group对应 -->
+				<job-group>bb</job-group>
+				<!-- 时间配置 -->
+				<cron-expression>0/5 * * * * ?</cron-expression>
+			</cron>
+		</trigger>
+	</schedule>
+
+	<!-- 这里可以写多个,一个定时任务就是一个 schedule -->
+	<!-- <schedule></schedule> -->
+</job-scheduling-data>
